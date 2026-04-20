@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris
+
 df = pd.DataFrame(load_iris().data, columns=load_iris().feature_names)
 
 print("Original Data:\n", df.head())
+
 df.iloc[0, 0] = np.nan
 df.iloc[1, 1] = np.nan
 
