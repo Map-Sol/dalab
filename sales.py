@@ -22,10 +22,17 @@ print("MAE :", round(mean_absolute_error(y_test, y_pred), 4))
 print("RMSE:", round(np.sqrt(mean_squared_error(y_test, y_pred)), 4))
 print("R²  :", round(r2_score(y_test, y_pred), 4))
 
-results = pd.DataFrame({'Actual': y_test.values[:20].round(2), 'Predicted':
-y_pred[:20].round(2)})
-results['Error'] = (results['Actual'] - results['Predicted']).round(2)
-print(f"\nPrediction Table:\n{results.to_string(index=False)}")
+res = pd.DataFrame({
+    'Actual': y_test.values[:10],
+    'Predicted': y_pred[:10]
+})
+res['Error'] = res['Actual'] - res['Predicted']
+
+print("\nWeather Forecast Table:\n", res.round(2))
+# results = pd.DataFrame({'Actual': y_test.values[:20].round(2), 'Predicted':
+# y_pred[:20].round(2)})
+# results['Error'] = (results['Actual'] - results['Predicted']).round(2)
+# print(f"\nPrediction Table:\n{results.to_string(index=False)}")
 
 plt.scatter(y_test, y_pred)
 plt.xlabel("Actual")
