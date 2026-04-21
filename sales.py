@@ -29,13 +29,12 @@ res = pd.DataFrame({
 res['Error'] = res['Actual'] - res['Predicted']
 
 print("\nWeather Forecast Table:\n", res.round(2))
-# results = pd.DataFrame({'Actual': y_test.values[:20].round(2), 'Predicted':
-# y_pred[:20].round(2)})
-# results['Error'] = (results['Actual'] - results['Predicted']).round(2)
-# print(f"\nPrediction Table:\n{results.to_string(index=False)}")
 
-plt.scatter(y_test, y_pred)
-plt.xlabel("Actual")
-plt.ylabel("Predicted")
-plt.title("Actual vs Predicted")
+
+plt.plot(y_test.values[:10], label='Actual')
+plt.plot(y_pred[:10], label='Predicted')
+plt.legend()
+plt.title("Weather Forecast Curve")
+plt.xlabel("Samples")
+plt.ylabel("Value")
 plt.show()
